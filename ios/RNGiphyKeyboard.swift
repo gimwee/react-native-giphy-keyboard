@@ -9,7 +9,12 @@ struct RNGiphyKeyboardEvents {
 
 @objc(RNGiphyKeyboard)
 open class RNGiphyKeyboard: RCTEventEmitter, GiphyDelegate {
-  let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+  let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
 
   var giphy: GiphyViewController?
   var rendition: GPHRenditionType?
@@ -64,7 +69,7 @@ open class RNGiphyKeyboard: RCTEventEmitter, GiphyDelegate {
         self.fileType = GPHFileExtension.with(key: fileType)
       }
 
-      self.rootViewController.present(giphy, animated: true, completion: {
+      self.keyWindow!.rootViewController!.present(giphy, animated: true, completion: {
         self.giphy = giphy
       })
     }
