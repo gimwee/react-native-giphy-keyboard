@@ -8,6 +8,7 @@ struct RNGiphyKeyboardEvents {
 }
 
 @objc(RNGiphyKeyboard)
+@available(iOS 13.0, *)
 open class RNGiphyKeyboard: RCTEventEmitter, GiphyDelegate {
   let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
