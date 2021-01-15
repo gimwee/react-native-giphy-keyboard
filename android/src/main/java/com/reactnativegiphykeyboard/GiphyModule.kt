@@ -14,6 +14,7 @@ import com.giphy.sdk.ui.themes.GridType
 import com.giphy.sdk.ui.themes.LightTheme
 import com.giphy.sdk.ui.utils.imageWithRenditionType
 import com.giphy.sdk.ui.views.GiphyDialogFragment
+import androidx.appcompat.app.AppCompatActivity;
 
 /** Events */
 private const val MEDIA_SELECTED_EVENT = "mediaSelected"
@@ -66,7 +67,7 @@ class GiphyModule(private val reactContext: ReactApplicationContext) : ReactCont
 
     @ReactMethod
     fun openGiphy(options: ReadableMap) {
-        val activity = reactContext.currentActivity as? ReactActivity ?: return
+        val activity = reactContext.currentActivity as? AppCompatActivity ?: return
 
         // Create new dialog instance and assign it
         giphyDialog = with(options) {
