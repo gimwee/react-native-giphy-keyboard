@@ -10,7 +10,7 @@ struct RNGiphyKeyboardEvents {
 @objc(RNGiphyKeyboard)
 @available(iOS 13.0, *)
 open class RNGiphyKeyboard: RCTEventEmitter, GiphyDelegate {
-  let keyWindow = let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+  let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
 
   var giphy: GiphyViewController?
   var rendition: GPHRenditionType?
