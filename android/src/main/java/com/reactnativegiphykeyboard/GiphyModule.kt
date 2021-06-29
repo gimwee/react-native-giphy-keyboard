@@ -7,6 +7,7 @@ import com.facebook.react.bridge.*
 import com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter
 import com.giphy.sdk.core.models.Media
 import com.giphy.sdk.core.models.enums.RenditionType
+import com.giphy.sdk.core.models.enums.RatingType
 import com.giphy.sdk.ui.GPHContentType
 import com.giphy.sdk.ui.GPHSettings
 import com.giphy.sdk.ui.Giphy
@@ -86,6 +87,8 @@ class GiphyModule(private val reactContext: ReactApplicationContext) : ReactCont
                     else -> GPHTheme.Light
                 }
             }
+            // set rating
+            settings.rating = RatingType.g
 
             // Create instance
             GiphyDialogFragment.newInstance(settings).apply {

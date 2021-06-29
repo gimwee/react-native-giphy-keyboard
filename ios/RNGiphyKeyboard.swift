@@ -56,6 +56,7 @@ open class RNGiphyKeyboard: RCTEventEmitter, GiphyDelegate {
         giphy.theme = gphTheme
       }
       giphy.delegate = self
+      giphy.rating = .ratedG
 
       if let rendition = options?["rendition"] as? String {
         self.rendition = GPHRenditionType.with(key: rendition)
